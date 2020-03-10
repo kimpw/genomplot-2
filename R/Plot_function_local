@@ -1,3 +1,13 @@
+#' genomplot
+#'
+#' @param x
+#' @param y
+#' @param z
+#'
+#' @return genom
+#' @export
+#'
+#' @examples
 spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab,) {
   library(readr)
   library(ggrepel)
