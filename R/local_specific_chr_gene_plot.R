@@ -1,4 +1,4 @@
-spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab) {
+spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p") {
   library(readr)
   library(ggrepel)
   library(ggplot2)
