@@ -1,4 +1,4 @@
-spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p", tiffpath) {
+spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p",name_gene) {
   library(readr)
   library(ggrepel)
   library(ggplot2)
@@ -40,7 +40,7 @@ spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p", t
     select(CHR,gene_name,tissue,END_POS,P,gene_type)%>%rename(BP=END_POS)
   
   popopo<-bind_rows(postart,poend)
-  xyn<-as.numeric(popopo[popopo$gene_name=="PENK","BP"][1,1])
+  xyn<-as.numeric(popopo[popopo$gene_name==name_gene,"BP"][1,1])
   popopo%<>%filter(BP>xyn-2&BP<xyn+2)
   popopo<-bind_rows(postart,poend)%>%filter(BP>xyn-2&BP<xyn+2)
   potest<-test2%>%filter(BP>xyn-2&BP<xyn+2)
@@ -79,6 +79,5 @@ spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p", t
     geom_hline(aes(yintercept = 0), size = 3) +
     geom_hline(yintercept = 3, size = .5)
   
-  ggsave(filename="GenomPlot.tiff",plot = genom,path= tiffpath,device = "tiff",scale = 1,width = 20,height = 15,units =
-           "in",dpi = 300,limitsize = TRUE)
+  return(genom)
 }
