@@ -1,4 +1,4 @@
-spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p",name_gene) {
+spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p",name_gene="PENK") {
   library(readr)
   library(ggrepel)
   library(ggplot2)
