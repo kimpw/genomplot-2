@@ -79,8 +79,7 @@ spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p") {
     geom_hline(aes(yintercept = 0), size = 3) +
     geom_hline(yintercept = 3, size = .5)
   
-  tiff("Plot.tiff", width = 20, height = 15, units = 'in', res = 300, compression = "lzw")
-  genom
+  tiff("GenomPlot.tiff", width = 20, height = 15, units = 'in', res = 300, compression = "lzw")
+  print(genom)
   dev.off()
-  return(genom)
 }
