@@ -1,4 +1,4 @@
-spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p") {
+spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p", tiffpath) {
   library(readr)
   library(ggrepel)
   library(ggplot2)
@@ -79,8 +79,5 @@ spec_chr_plot <- function(genedata,mapdata,tissuedata,chr=8,tag_p=3,y_lab="p") {
     geom_hline(aes(yintercept = 0), size = 3) +
     geom_hline(yintercept = 3, size = .5)
   
-  tiff("Plot.tiff", width = 20, height = 15, units = 'in', res = 300, compression = "lzw")
-  genom
-  dev.off()
-  return(genom)
+  ggsave(filename="GenomPlot.tiff",plot = genom,path= tiffpath,device = "tiff",scale = 1,width = 20,height = 15,units = "in",dpi = 300,limitsize = TRUE)
 }
